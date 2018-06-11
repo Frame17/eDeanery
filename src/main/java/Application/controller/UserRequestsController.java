@@ -11,4 +11,5 @@ public class UserRequestsController {
     public String getMainPage() {
         return "pageForStudents";
     }
+
 }
