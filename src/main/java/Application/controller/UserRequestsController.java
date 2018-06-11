@@ -9,6 +9,6 @@ public class UserRequestsController {
 
     @GetMapping("/hello")
     public String getMainPage() {
-        return "side";
+        return "pageForStudents";
     }
 }
