@@ -1,4 +1,3 @@
-C:\Users\fedus\IdeaProjects\eDeanery\src\main\java\main\App.java
-C:\Users\fedus\IdeaProjects\eDeanery\src\main\java\controller\UserRequestController.java
-C:\Users\fedus\IdeaProjects\eDeanery\src\main\java\service\UserRequestService.java
-C:\Users\fedus\IdeaProjects\eDeanery\src\main\java\model\UserRequest.java
+C:\Users\fedus\IdeaProjects\eDeanery\src\main\java\Application\model\UserRequest.java
+C:\Users\fedus\IdeaProjects\eDeanery\src\main\java\Application\App.java
+C:\Users\fedus\IdeaProjects\eDeanery\src\main\java\Application\controller\UserRequestsController.java

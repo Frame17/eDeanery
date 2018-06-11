@@ -1,4 +1,3 @@
-main\App.class
-controller\UserRequestController.class
-service\UserRequestService.class
-model\UserRequest.class
+Application\controller\UserRequestsController.class
+Application\App.class
+Application\model\UserRequest.class
