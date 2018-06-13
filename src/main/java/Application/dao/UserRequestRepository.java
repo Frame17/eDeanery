@@ -10,4 +10,7 @@ public interface UserRequestRepository extends CrudRepository<UserRequest, Long>
     List<UserRequest> findAll();
 
     List<UserRequest> findByIsAnswered(boolean isAnswered);
+
+    UserRequest save(UserRequest userRequest);
+
 }

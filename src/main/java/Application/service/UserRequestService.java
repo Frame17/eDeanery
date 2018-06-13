@@ -4,6 +4,7 @@ import Application.dao.UserRequestRepository;
 import Application.model.UserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 /*
@@ -22,5 +23,9 @@ public class UserRequestService {
 
     public List<UserRequest> findByAnswered(boolean isAnswered) {
         return userRequestRepository.findByIsAnswered(isAnswered);
+    }
+
+    public void save(UserRequest userRequest) {
+        userRequestRepository.save(userRequest);
     }
 }
