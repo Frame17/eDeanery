@@ -17,7 +17,7 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
-    @GetMapping ("/registration")
+    @GetMapping("/registration")
     public String getRegistrationPage(Model model) {
         List<Users> users = userService.findAll();
         model.addAttribute("userRequests", users);
@@ -25,12 +25,28 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String getRegistrationPage(HttpServletRequest request, Model model) {
-        Users user = new Users(request.getParameter("firstName"),request.getParameter("lastName")
-        ,request.getParameter("password"),request.getParameter("email"));
-       userService.save(user);
-        List<Users> users = userService.findAll();
-        model.addAttribute("users", users);
+    public String getFromRegistrationPage(HttpServletRequest request, Model model) {
+        if (!request.getParameter("password").equals(request.getParameter("matchingPassword"))){}
+        else {
+            Users user = new Users(request.getParameter("firstName"), request.getParameter("lastName")
+                    , request.getParameter("password"), request.getParameter("email"));
+            userService.save(user);
+            List<Users> users = userService.findAll();
+            model.addAttribute("users", users);
+        }
         return "registration";
+    }
+
+    @PostMapping("/login")
+    public String returnLogin() {
+        return "login";
+
+    }
+
+    @GetMapping("/login")
+    public String getLoginPage(Model model) {
+        List<Users> users = userService.findAll();
+        model.addAttribute("userRequests", users);
+        return "login";
     }
 }
