@@ -12,7 +12,7 @@ Doubling methods here to use them in @Controller and easily implement other requ
  */
 
 @Service
-public class UserRequestService {
+public class RequestService {
 
     @Autowired
     private UserRequestRepository userRequestRepository;
