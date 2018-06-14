@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Page for Staff</title>
+    <title>Reply Form</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <link rel="stylesheet/less" href="css/staff.less">
+    <link rel="stylesheet/less" href="css/replyForm.less">
 
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -26,8 +26,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js"></script>
 
     <script src="js/common.js"></script>
-
-
 </head>
 <body>
 
@@ -53,37 +51,22 @@
     </div>
 </header>
 
-<div class="container-fluid request-list">
-    <div class="row request">
-        <div class="col-xs-3 col-sm-1 no-text-overflow">
-            %Time%
-        </div>
-        <div class="col-xs-9 col-sm-3 no-text-overflow">
-            %From%
-        </div>
-        <div class="col-xs-12 col-sm-6 no-text-overflow">
-            %Topic%
-        </div>
-        <div class="col-xs-12 col-sm-2">
-            <button type="button" class="btn btn-default"><span class="no-text-overflow">Reply</span></button>
-        </div>
+
+<div class="reply-container">
+    <div class="field topic-field">
+        <span style="margin-top: 2px; font-size: 1.5em"><b>%Topic%</b></span><br>
+        <span style="padding-left:5px; margin-top: 2px; font-size: 1.25em;">%From%</span>
     </div>
 
-    <div class="row request">
-        <div class="col-xs-3 col-sm-1 no-text-overflow">
-            %Time%
-        </div>
-        <div class="col-xs-9 col-sm-3 no-text-overflow">
-            %From%
-        </div>
-        <div class="col-xs-12 col-sm-6 no-text-overflow">
-            %Topic% fjdksafkl;as f asdl;fjsajk fa;s jfdkas f;lkas fk;las fjasfj asjf l;asf j;l jsfasfkdsa f;la sf;j a;l
-            fjlakjfklas j;lfj al;sj f;ljasf;l ajk;lsf l;a jfl; ka;lsf
-        </div>
-        <div class="col-xs-12 col-sm-2">
-            <button type="button" class="btn btn-default"><span class="no-text-overflow">Reply</span></button>
-        </div>
+    <div class="field request-field">
+        <span>%Request% fadskfjasdklfn dasfjdsalkf jsad f jsdl;kjdas;lfas;lfasj;faj;sf  sdfkjklas fsda kjfl;asfj;lad sfas;l fjl;as fj;asf j;dsaj fdsa fjasd fkjdsa kldas f dasj fajsd;fj;sadf jsda jfj sda; f;sda f;dsa jf</span>
     </div>
+
+    <form class="field reply-form" method="post">
+        <textarea name="answerInput" placeholder="Answer text" class="answer-input"></textarea><br>
+        <input name="inputFile" type="file" style="margin: auto"><br>
+        <input type="submit" value="Submit">
+    </form>
 </div>
 
 
