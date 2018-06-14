@@ -11,8 +11,6 @@ public class UserRequest {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(nullable = false)
-    private boolean isAnswered;
-    @Column(nullable = false)
     private String date;
     @Column(nullable = false)
     private String time;
@@ -32,16 +30,11 @@ public class UserRequest {
         this.date = dateFormat.format(now);
         this.time = timeFormat.format(now);
         this.text = text;
-        this.isAnswered = false;
     }
 
 
     public long getId() {
         return id;
-    }
-
-    public boolean isAnswered() {
-        return isAnswered;
     }
 
     public String getDate() {
@@ -64,18 +57,14 @@ public class UserRequest {
         this.responseText = responseText;
     }
 
-    public void setAnswered(boolean answered) {
-        isAnswered = answered;
-    }
-
     @Override
     public String toString() {
         return "UserRequest{" +
                 "id=" + id +
-                ", isAnswered=" + isAnswered +
                 ", date='" + date + '\'' +
                 ", time='" + time + '\'' +
                 ", text='" + text + '\'' +
+                ", responseText='" + responseText + '\'' +
                 '}';
     }
 }

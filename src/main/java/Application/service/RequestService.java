@@ -21,10 +21,6 @@ public class RequestService {
         return userRequestRepository.findAll();
     }
 
-    public List<UserRequest> findByAnswered(boolean isAnswered) {
-        return userRequestRepository.findByIsAnswered(isAnswered);
-    }
-
     public void save(UserRequest userRequest) {
         userRequestRepository.save(userRequest);
     }
