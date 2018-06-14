@@ -18,8 +18,8 @@ public class UserRequest {
     private String time;
     @Column(nullable = false)
     private String text;
-    @Column(nullable = true)
-    private String response;
+    @Column
+    private String responseText;
 
 
     public UserRequest() {
@@ -56,12 +56,16 @@ public class UserRequest {
         return text;
     }
 
-    public void setAnswered(boolean answered) {
-        isAnswered = answered;
+    public String getResponseText() {
+        return responseText;
     }
 
-    public void setResponse(String response) {
-        this.response = response;
+    public void setResponseText(String responseText) {
+        this.responseText = responseText;
+    }
+
+    public void setAnswered(boolean answered) {
+        isAnswered = answered;
     }
 
     @Override

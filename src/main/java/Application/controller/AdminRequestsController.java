@@ -21,5 +21,4 @@ public class AdminRequestsController {
         model.addAttribute("userRequests", userRequests);
         return "pageForStaff";
     }
-
 }
