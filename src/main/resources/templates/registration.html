@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <body>
-$END$
+<h1>Login</h1>
+<hr/>
+
+<form method="post">
+    name:
+    <input type="text" name="firstName"></input>
+    last name:
+    <input type="text" name="lastName"></input>
+    password:
+    <input type="text" name="password"></input>
+    repeat password:
+    <input type="text" name="matchingPassword"></input>
+    email:
+    <input type="text" name="email"></input>
+    <button type="submit">Register</button>
+</form>
+<h3 th:text = "${users}"></h3>
 </body>
 </html>

@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class UserDataTransfer {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -24,17 +24,16 @@ public class UserDataTransfer {
     @NotNull
     @NotEmpty
     private String password;
-    private String matchingPassword;
 
     @NotNull
     @NotEmpty
     private String email;
 
-    public UserDataTransfer() {
+    public Users() {
 
     }
 
-    public UserDataTransfer(String firstName, String lastName, String password, String email) {
+    public Users(String firstName, String lastName, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
