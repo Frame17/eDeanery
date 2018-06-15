@@ -11,9 +11,9 @@ public class UserRequest {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(nullable = false)
-    private String dateR;
+    private String requestDate;
     @Column(nullable = false)
-    private String timeR;
+    private String requestTime;
     @Column(nullable = false)
     private String text;
     @Column
@@ -27,8 +27,8 @@ public class UserRequest {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-        this.dateR = dateFormat.format(now);
-        this.timeR = timeFormat.format(now);
+        this.requestDate = dateFormat.format(now);
+        this.requestTime = timeFormat.format(now);
         this.text = text;
     }
 
@@ -37,12 +37,12 @@ public class UserRequest {
         return id;
     }
 
-    public String getDateR() {
-        return dateR;
+    public String getRequestDate() {
+        return requestDate;
     }
 
-    public String getTimeR() {
-        return timeR;
+    public String getRequestTime() {
+        return requestTime;
     }
 
     public String getText() {
@@ -61,8 +61,8 @@ public class UserRequest {
     public String toString() {
         return "UserRequest{" +
                 "id=" + id +
-                ", date='" + dateR + '\'' +
-                ", time='" + timeR + '\'' +
+                ", date='" + requestDate + '\'' +
+                ", time='" + requestTime + '\'' +
                 ", text='" + text + '\'' +
                 ", responseText='" + responseText + '\'' +
                 '}';

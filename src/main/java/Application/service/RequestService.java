@@ -21,6 +21,10 @@ public class RequestService {
         return userRequestRepository.findAll();
     }
 
+    public List<UserRequest> findAllByResponseTextNotNull() {
+        return userRequestRepository.findAllByResponseTextNotNull();
+    }
+    
     public void save(UserRequest userRequest) {
         userRequestRepository.save(userRequest);
     }

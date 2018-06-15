@@ -9,5 +9,7 @@ public interface UserRequestRepository extends CrudRepository<UserRequest, Long>
 
     List<UserRequest> findAll();
 
+    List<UserRequest> findAllByResponseTextNotNull();
+    
     UserRequest save(UserRequest userRequest);
 }

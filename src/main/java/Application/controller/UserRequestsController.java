@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -31,6 +33,20 @@ public class UserRequestsController {
         requestService.save(userRequest);
         List<UserRequest> userRequests = requestService.findAll();
         model.addAttribute("userRequests", userRequests);
+        return "pageForStudents";
+    }
+    
+    @GetMapping("/add")
+    public @ResponseBody String addRequest(@RequestParam String text) {
+        UserRequest req = new UserRequest(text);
+        requestService.save(req);
+        return "Saved\n" + req;
+    }
+    
+    @GetMapping("/notnull")
+    public String responseNotNull(Model model) {
+        List<UserRequest> reqs = requestService.findAllByResponseTextNotNull();
+        model.addAttribute("userRequests", reqs);
         return "pageForStudents";
     }
 }
