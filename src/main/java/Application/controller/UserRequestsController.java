@@ -20,14 +20,14 @@ public class UserRequestsController {
     @Autowired
     private RequestService requestService;
 
-    @GetMapping("/hello")
+    @GetMapping("/userPage")
     public String getMainPage(Model model) {
         List<UserRequest> userRequests = requestService.findAll();
         model.addAttribute("userRequests", userRequests);
         return "pageForStudents";
     }
 
-    @PostMapping("/hello")
+    @PostMapping("/userPage")
     public String getFromMainPage(HttpServletRequest request, Model model) {
         UserRequest userRequest = new UserRequest(request.getParameter("description"));
         requestService.save(userRequest);
@@ -47,6 +47,6 @@ public class UserRequestsController {
     public String responseNotNull(Model model) {
         List<UserRequest> reqs = requestService.findAllByResponseTextNotNull();
         model.addAttribute("userRequests", reqs);
-        return "pageForStudents";
+        return "dbTests";
     }
 }
