@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Page for Staff</title>
@@ -54,36 +54,16 @@
 </header>
 
 <div class="container-fluid request-list">
-    <div class="row request">
-        <div class="col-xs-3 col-sm-1 no-text-overflow">
-            %Time%
+    <th:block th:each="userRequest : ${userRequests}">
+        <div class="row request">
+            <span class="col-xs-6 col-sm-1 no-text-overflow" th:text="${userRequest.requestDate}"></span>
+            <span class="col-xs-6 col-sm-3 no-text-overflow" th:text="${userRequest.requestTime}"></span>
+            <b><span class="col-xs-12 col-sm-6 no-text-overflow" th:text="${userRequest.text}"></span></b>
+            <span class="col-xs-12 col-sm-2">
+                <button type="button" class="btn btn-default"><span class="no-text-overflow">Reply</span></button>
+            </span>
         </div>
-        <div class="col-xs-9 col-sm-3 no-text-overflow">
-            %From%
-        </div>
-        <div class="col-xs-12 col-sm-6 no-text-overflow">
-            %Topic%
-        </div>
-        <div class="col-xs-12 col-sm-2">
-            <button type="button" class="btn btn-default"><span class="no-text-overflow">Reply</span></button>
-        </div>
-    </div>
-
-    <div class="row request">
-        <div class="col-xs-3 col-sm-1 no-text-overflow">
-            %Time%
-        </div>
-        <div class="col-xs-9 col-sm-3 no-text-overflow">
-            %From%
-        </div>
-        <div class="col-xs-12 col-sm-6 no-text-overflow">
-            %Topic% fjdksafkl;as f asdl;fjsajk fa;s jfdkas f;lkas fk;las fjasfj asjf l;asf j;l jsfasfkdsa f;la sf;j a;l
-            fjlakjfklas j;lfj al;sj f;ljasf;l ajk;lsf l;a jfl; ka;lsf
-        </div>
-        <div class="col-xs-12 col-sm-2">
-            <button type="button" class="btn btn-default"><span class="no-text-overflow">Reply</span></button>
-        </div>
-    </div>
+    </th:block>
 </div>
 
 
