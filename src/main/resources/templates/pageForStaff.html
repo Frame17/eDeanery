@@ -55,12 +55,13 @@
 
 <div class="container-fluid request-list">
     <th:block th:each="userRequest : ${userRequests}">
-        <div class="row request">
+        <div class="row request" th:id="${userRequest.id}">
             <span class="col-xs-6 col-sm-1 no-text-overflow" th:text="${userRequest.requestDate}"></span>
             <span class="col-xs-6 col-sm-3 no-text-overflow" th:text="${userRequest.requestTime}"></span>
             <b><span class="col-xs-12 col-sm-6 no-text-overflow" th:text="${userRequest.text}"></span></b>
             <span class="col-xs-12 col-sm-2">
-                <button type="button" class="btn btn-default" th:id="${userRequest.id}"><span class="no-text-overflow" onclick="openReplyForm()">Reply</span></button>
+                <button type="button" class="btn btn-default"><span class="no-text-overflow"
+                                                                                              onclick="openReplyForm()">Reply</span></button>
             </span>
         </div>
     </th:block>
