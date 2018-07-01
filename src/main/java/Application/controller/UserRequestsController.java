@@ -42,11 +42,4 @@ public class UserRequestsController {
         requestService.save(req);
         return "Saved\n" + req;
     }
-    
-    @GetMapping("/notnull")
-    public String responseNotNull(Model model) {
-        List<UserRequest> reqs = requestService.findAllByResponseTextNotNull();
-        model.addAttribute("userRequests", reqs);
-        return "dbTests";
-    }
 }

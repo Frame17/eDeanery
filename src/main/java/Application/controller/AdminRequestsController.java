@@ -17,8 +17,13 @@ public class AdminRequestsController {
 
     @GetMapping("/admin")
     public String getMainPage(Model model) {
-        List<UserRequest> userRequests = requestService.findAll();
+        List<UserRequest> userRequests = requestService.findAllByResponseTextNull();
         model.addAttribute("userRequests", userRequests);
         return "pageForStaff";
+    }
+
+    @GetMapping("/replyForm")
+    public String getReplyForm() {
+        return "replyForm";
     }
 }
