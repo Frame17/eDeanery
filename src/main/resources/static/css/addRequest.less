@@ -1,0 +1,36 @@
+@import "common.less";
+
+@paddingSide: 10px;
+
+.create-request-form {
+  background-color: lightgrey;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-top: @topPanelHeight;
+  margin-left: @marginSide;
+  margin-right: @marginSide;
+
+  .field {
+    border-bottom: 1px solid grey;
+    display: block;
+    padding-left: @paddingSide;
+    padding-right: @paddingSide;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+
+    .topic-input {
+      width: 100%;
+    }
+
+    .submit-button {
+      margin: auto;
+    }
+  }
+
+  .text-input {
+    width: 75%;
+    resize: none;
+    margin: auto;
+  }
+}

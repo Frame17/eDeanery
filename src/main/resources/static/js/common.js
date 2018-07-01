@@ -4,5 +4,13 @@ function dropdownExtras() {
 
 //the url should be changed
 function openReplyForm() {
-    window.open("http://localhost:8080/replyForm","_self");
+    window.open("../replyForm","_self");
+}
+
+function openAddRequestForm(){
+    window.open("../add", "_self");
+}
+
+function openUserPage(){
+    window.open("../userPage", "_self");
 }
