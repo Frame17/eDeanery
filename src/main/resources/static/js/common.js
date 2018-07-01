@@ -2,7 +2,6 @@ function dropdownExtras() {
     document.getElementById("extrasDropdown").classList.toggle("show");
 }
 
-//the url should be changed
 function openReplyForm() {
     window.open("../replyForm","_self");
 }

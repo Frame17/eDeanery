@@ -27,7 +27,8 @@ public class UserRequestsController {
 
     @PostMapping("/userPage")
     public String getFromMainPage(HttpServletRequest request, Model model) {
-        UserRequest userRequest = new UserRequest(request.getParameter("description"));
+
+        UserRequest userRequest = new UserRequest(request.getParameter("text"), request.getParameter("requestTopic"));
         requestService.save(userRequest);
         List<UserRequest> userRequests = requestService.findAll();
         model.addAttribute("userRequests", userRequests);
@@ -41,7 +42,7 @@ public class UserRequestsController {
 
     @PostMapping("/add")
     public String postFromAddRequestPage(HttpServletRequest request, Model model) {
-        UserRequest userRequest = new UserRequest(request.getParameter("text"));
+        UserRequest userRequest = new UserRequest(request.getParameter("text"), request.getParameter("topic"));
         requestService.save(userRequest);
         List<UserRequest> userRequests = requestService.findAll();
         model.addAttribute("userRequests", userRequests);
