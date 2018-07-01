@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Students Page</title>
@@ -35,6 +35,9 @@
             <button type="button" class="btn btn-default" onclick="dropdownExtras()">
                 <span class="glyphicon glyphicon-menu-hamburger"></span>
             </button>
+            <button type="button" class="btn btn-primary" onclick="openAddRequestForm()">
+                <span class="glyphicon glyphicon-send"></span>
+            </button>
             <div class="dropdown-content" id="extrasDropdown">
                 <a href="#">Unanswered requests</a>
                 <a href="#">All requests</a>
@@ -67,6 +70,17 @@
             <span class="glyphicon glyphicon-green-dot"></span>
         </div>
     </div>
+
+    <th:block th:each="userRequest : ${userRequests}">
+        <div class="row request">
+            <span class="col-xs-6 col-sm-1 no-text-overflow" th:text="${userRequest.requestDate}"></span>
+            <span class="col-xs-6 col-sm-3 no-text-overflow" th:text="${userRequest.requestTime}"></span>
+            <b><span class="col-xs-12 col-sm-6 no-text-overflow" th:text="${userRequest.text}"></span></b>
+            <span class="col-xs-12 col-sm-2">
+                <button type="button" class="btn btn-default"><span class="no-text-overflow" onclick="openReplyForm()">Reply</span></button>
+            </span>
+        </div>
+    </th:block>
 
 </div>
 
