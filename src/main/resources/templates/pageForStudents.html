@@ -71,12 +71,13 @@
     </div>
 
     <th:block th:each="userRequest : ${userRequests}">
-        <div class="row request" th:id="${userRequest.id}">
+        <div class="row request">
             <span class="col-xs-6 col-sm-1 no-text-overflow" th:text="${userRequest.requestDate}"></span>
             <span class="col-xs-6 col-sm-3 no-text-overflow" th:text="${userRequest.requestTime}"></span>
             <b><span class="col-xs-12 col-sm-6 no-text-overflow" th:text="${userRequest.requestTopic}"></span></b>
             <span class="col-xs-12 col-sm-2">
-                <button type="button" class="btn btn-default"><span class="no-text-overflow" onclick="openReplyForm(this)">View</span></button>
+                <button type="button" class="btn btn-default" th:id="${userRequest.id}"
+                        onclick="openReplyForm(this.id)"><span class="no-text-overflow">View</span></button>
             </span>
         </div>
     </th:block>
