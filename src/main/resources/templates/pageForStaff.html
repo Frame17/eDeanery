@@ -38,9 +38,9 @@
                 <span class="glyphicon glyphicon-menu-hamburger"></span>
             </button>
             <div class="dropdown-content" id="extrasDropdown">
-                <a href="#">Unanswered requests</a>
-                <a href="#">All requests</a>
-                <a href="#">Answered requests</a>
+                <a href="../admin">Unanswered requests</a>
+                <a href="../admin">All requests</a>
+                <a href="../admin">Answered requests</a>
             </div>
 
         </div>
@@ -74,10 +74,14 @@
             <span class="col-xs-6 col-sm-1 no-text-overflow" th:text="${userRequest.requestDate}"></span>
             <span class="col-xs-6 col-sm-3 no-text-overflow" th:text="${userRequest.requestTime}"></span>
             <b><span class="col-xs-12 col-sm-6 no-text-overflow" th:text="${userRequest.requestTopic}"></span></b>
-            <span class="col-xs-12 col-sm-2">
-                <button type="button" class="btn btn-default" th:id="${userRequest.id}"
-                        onclick="openReplyForm(this.id)"><span class="no-text-overflow">Reply</span></button>
-            </span>
+            <div class="col-xs-12 col-sm-2 reply-button-container">
+                <form method="post">
+                    <input hidden type="text" name="request-id" th:value="${userRequest.id}">
+                    <input type="submit" class="btn btn-default no-text-overflow" value="Reply">
+                </form>
+                <!--<button type="button" class="btn btn-default" th:id="${userRequest.id}"
+                        onclick="openReplyForm(this.id)"><span class="no-text-overflow">Reply</span></button>-->
+            </div>
         </div>
     </th:block>
 </div>
