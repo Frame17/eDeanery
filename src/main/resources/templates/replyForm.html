@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Reply Form</title>
@@ -54,12 +54,12 @@
 
 <div class="reply-container">
     <div class="field topic-field">
-        <span style="margin-top: 2px; font-size: 1.5em"><b>%Topic%</b></span><br>
+        <span style="margin-top: 2px; font-size: 1.5em" th:text="${userRequest.requestTopic}"><b></b></span><br>
         <span style="padding-left:5px; margin-top: 2px; font-size: 1.25em;">%From%</span>
     </div>
 
     <div class="field request-field">
-        <span>%Request% fadskfjasdklfn dasfjdsalkf jsad f jsdl;kjdas;lfas;lfasj;faj;sf  sdfkjklas fsda kjfl;asfj;lad sfas;l fjl;as fj;asf j;dsaj fdsa fjasd fkjdsa kldas f dasj fajsd;fj;sadf jsda jfj sda; f;sda f;dsa jf</span>
+        <span th:text="${userRequest.text}"></span>
     </div>
 
     <form class="field reply-form" method="post">

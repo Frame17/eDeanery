@@ -28,4 +28,8 @@ public class RequestService {
     public void save(UserRequest userRequest) {
         userRequestRepository.save(userRequest);
     }
+
+    public UserRequest findUserRequestById(long id) {
+        return userRequestRepository.findById(id);
+    }
 }
