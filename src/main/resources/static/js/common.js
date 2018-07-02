@@ -2,8 +2,8 @@ function dropdownExtras() {
     document.getElementById("extrasDropdown").classList.toggle("show");
 }
 
-function openReplyForm() {
-    window.open("../replyForm","_self");
+function openReplyForm(id) {
+    window.open("../replyForm?id=" + id,"_self");
 }
 
 function openAddRequestForm(){

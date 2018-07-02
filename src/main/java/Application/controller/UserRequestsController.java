@@ -42,12 +42,11 @@ public class UserRequestsController {
 
     @PostMapping("/add")
     public String postFromAddRequestPage(HttpServletRequest request, Model model) {
-        UserRequest userRequest = new UserRequest(request.getParameter("text"), request.getParameter("topic"));
+        UserRequest userRequest = new UserRequest(request.getParameter("text"), request.getParameter("requestTopic"));
         requestService.save(userRequest);
         List<UserRequest> userRequests = requestService.findAll();
         model.addAttribute("userRequests", userRequests);
         return "redirect:/userPage";
-        //return getMainPage(model);
     }
 
 
