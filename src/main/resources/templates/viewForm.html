@@ -1,10 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>ViewForm</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet/less" href="/css/viewForm.less">
+
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <!-- LESS JavaScript compiler -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js"></script>
+
+    <script src="/js/common.js"></script>
 </head>
 <body>
-    View Form
+
+<header id="top-panel">
+    <div class="row full-height">
+        <div class="col-xs-4 full-height dropdown" id="extra-button-container">
+            <button type="button" class="btn btn-default" onclick="dropdownExtras()">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+            <button type="button" class="btn btn-primary" onclick="openAddRequestForm()">
+                <span class="glyphicon glyphicon-send"></span>
+            </button>
+            <div class="dropdown-content" id="extrasDropdown">
+                <a href="#">Unanswered requests</a>
+                <a href="#">All requests</a>
+                <a href="#">Answered requests</a>
+            </div>
+
+        </div>
+        <div class="col-xs-4 full-height"></div>
+        <div class="col-xs-4 full-height" id="log-out-button-container">
+            <button type="button" class="btn btn-warning">
+                <span class="glyphicon glyphicon-log-in"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+
+<div class="reply-container">
+    <div class="field topic-field">
+        <b><span style="margin-top: 2px; font-size: 1.5em" th:text="${userRequest.requestTopic}"></span></b><br>
+        <span style="padding-left:5px; margin-top: 2px; font-size: 1.25em;" th:text="${userRequest.requestDate}"></span>,
+        <span style="padding-left:5px; margin-top: 2px; font-size: 1.25em;" th:text="${userRequest.requestTime}"></span>
+    </div>
+
+    <div class="field request-field">
+        <span th:text="${userRequest.text}"></span>
+    </div>
+</div>
+
+
 </body>
 </html>

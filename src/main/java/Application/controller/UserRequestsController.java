@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -42,7 +43,7 @@ public class UserRequestsController {
 
     @PostMapping("/add")
     public String postFromAddRequestPage(HttpServletRequest request, Model model) {
-        UserRequest userRequest = new UserRequest(request.getParameter("text"), request.getParameter("requestTopic"));
+        UserRequest userRequest = new UserRequest(request.getParameter("text"), request.getParameter("topic"));
         requestService.save(userRequest);
         List<UserRequest> userRequests = requestService.findAll();
         model.addAttribute("userRequests", userRequests);
@@ -50,17 +51,9 @@ public class UserRequestsController {
     }
 
     @GetMapping("/viewForm")
-    public String getReplyForm() {
+    public String getReplyForm(@RequestParam(name = "id", required = true) long id, Model model) {
+        UserRequest userRequest = requestService.findUserRequestById(id);
+        model.addAttribute("userRequest", userRequest);
         return "viewForm";
     }
-
-
-    /*
-    @GetMapping("/add")
-    public @ResponseBody String addRequest(@RequestParam String text) {
-        UserRequest req = new UserRequest(text);
-        requestService.save(req);
-        return "Saved\n" + req;
-    }
-    */
 }
