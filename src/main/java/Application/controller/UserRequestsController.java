@@ -49,6 +49,11 @@ public class UserRequestsController {
         return "redirect:/userPage";
     }
 
+    @GetMapping("/viewForm")
+    public String getReplyForm() {
+        return "viewForm";
+    }
+
 
     /*
     @GetMapping("/add")

@@ -13,3 +13,8 @@ function openAddRequestForm(){
 function openUserPage(){
     window.open("../userPage", "_self");
 }
+
+// lets user to view his information about his request
+function openViewForm(id) {
+    window.open("../viewForm?id=" + id, "_self");
+}
