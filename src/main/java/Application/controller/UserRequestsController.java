@@ -28,7 +28,6 @@ public class UserRequestsController {
 
     @PostMapping("/userPage")
     public String getFromMainPage(HttpServletRequest request, Model model) {
-
         UserRequest userRequest = new UserRequest(request.getParameter("text"), request.getParameter("requestTopic"));
         requestService.save(userRequest);
         List<UserRequest> userRequests = requestService.findAll();
