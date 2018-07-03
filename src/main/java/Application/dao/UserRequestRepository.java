@@ -14,4 +14,5 @@ public interface UserRequestRepository extends CrudRepository<UserRequest, Long>
     UserRequest save(UserRequest userRequest);
 
     UserRequest findById(long id);
+
 }
