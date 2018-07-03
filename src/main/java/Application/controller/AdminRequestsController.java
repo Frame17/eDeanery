@@ -35,7 +35,7 @@ public class AdminRequestsController {
 
     @PostMapping("/replyForm")
     public String getFromReplyForm(HttpServletRequest request, Model model) {
-        UserRequest userRequest = new UserRequest(request.getParameter(), request.getParameter());
+        //UserRequest userRequest = new UserRequest(request.getParameter(), request.getParameter());
         return "redirect:/admin";
     }
 }
