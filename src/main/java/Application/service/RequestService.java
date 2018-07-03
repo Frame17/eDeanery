@@ -32,4 +32,8 @@ public class RequestService {
     public UserRequest findUserRequestById(long id) {
         return userRequestRepository.findById(id);
     }
+
+    public void updateUserRequestById(long id, String responseText) {
+        userRequestRepository.updateRequestById(id, responseText);
+    }
 }
