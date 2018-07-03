@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -33,7 +34,8 @@ public class AdminRequestsController {
     }
 
     @PostMapping("/replyForm")
-    public String getFromReplyForm() {
+    public String getFromReplyForm(HttpServletRequest request, Model model) {
+        UserRequest userRequest = new UserRequest(request.getParameter(), request.getParameter());
         return "redirect:/admin";
     }
 }
