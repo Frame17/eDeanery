@@ -26,4 +26,9 @@ public class UserRequestsControllerTest {
     public void getMainPage() throws Exception {
         mockMvc.perform(get("/userPage")).andExpect(status().isOk());
     }
+
+    @Test
+    public void getAddForm() throws Exception {
+        mockMvc.perform(get("/add")).andExpect(status().isOk());
+    }
 }
