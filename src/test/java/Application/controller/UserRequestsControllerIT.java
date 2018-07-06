@@ -10,11 +10,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(UserRequestsController.class)
-public class UserRequestsControllerTest {
+public class UserRequestsControllerIT {
 
     @Autowired
     private MockMvc mockMvc;
@@ -24,7 +25,7 @@ public class UserRequestsControllerTest {
 
     @Test
     public void getMainPage() throws Exception {
-        mockMvc.perform(get("/userPage")).andExpect(status().isOk());
+        mockMvc.perform(get("/userPage")).andDo(print()).andExpect(status().isOk());
     }
 
     @Test

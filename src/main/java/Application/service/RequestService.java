@@ -24,7 +24,7 @@ public class RequestService {
     public List<UserRequest> findAllByResponseTextNull() {
         return userRequestRepository.findAllByResponseTextNull();
     }
-    
+
     public void save(UserRequest userRequest) {
         userRequestRepository.save(userRequest);
     }
@@ -35,5 +35,9 @@ public class RequestService {
 
     public void updateUserRequestById(long id, String responseText) {
         userRequestRepository.updateRequestById(id, responseText);
+    }
+
+    public void deleteUserRequestById(long id) {
+        userRequestRepository.deleteById(id);
     }
 }

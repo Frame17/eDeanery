@@ -24,4 +24,6 @@ public interface UserRequestRepository extends CrudRepository<UserRequest, Long>
     @Query("update UserRequest u set u.responseText = :responseText where u.id = :id")
     void updateRequestById(@Param("id") long id, @Param("responseText") String responseText);
 
+    void deleteById(long id);
+
 }
