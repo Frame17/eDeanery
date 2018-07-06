@@ -31,11 +31,6 @@ public class RequestServiceTest {
         requestService.updateUserRequestById(testUserRequest.getId(), "test");
     }
 
-    @After
-    public void tearDown() {
-        requestService.deleteUserRequestById(testUserRequest.getId());
-    }
-
     @Test
     public void findAll() {
         verify(requestService).findAll();
