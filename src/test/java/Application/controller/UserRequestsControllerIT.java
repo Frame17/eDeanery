@@ -1,35 +1,33 @@
 package Application.controller;
 
-import Application.service.RequestService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(UserRequestsController.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserRequestsControllerIT {
 
-    @Autowired
-    private MockMvc mockMvc;
+    private ResponseEntity<String> responseEntity;
 
-    @MockBean
-    private RequestService requestService;
+    @Autowired
+    private TestRestTemplate testRestTemplate;
 
     @Test
-    public void getMainPage() throws Exception {
-        mockMvc.perform(get("/userPage")).andDo(print()).andExpect(status().isOk());
+    public void getUserPage() throws Exception {
+        responseEntity = testRestTemplate.getForEntity("/userPage", String.class);
+        assertTrue("Could not find /userPage page", responseEntity.getStatusCode().is2xxSuccessful());
     }
 
     @Test
     public void getAddForm() throws Exception {
-        mockMvc.perform(get("/add")).andExpect(status().isOk());
+        responseEntity = testRestTemplate.getForEntity("/add", String.class);
+        assertTrue("Could not find /add page", responseEntity.getStatusCode().is2xxSuccessful());
     }
 }
