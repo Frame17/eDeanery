@@ -14,8 +14,12 @@ Doubling methods here to use them in @Controller and easily implement other requ
 @Service
 public class RequestService {
 
+    private final UserRequestRepository userRequestRepository;
+
     @Autowired
-    private UserRequestRepository userRequestRepository;
+    public RequestService(UserRequestRepository userRequestRepository) {
+        this.userRequestRepository = userRequestRepository;
+    }
 
     public List<UserRequest> findAll() {
         return userRequestRepository.findAll();

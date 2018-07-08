@@ -16,8 +16,12 @@ import java.util.List;
 @Controller
 public class UserRequestsController {
 
+    private final RequestService requestService;
+
     @Autowired
-    private RequestService requestService;
+    public UserRequestsController(RequestService requestService) {
+        this.requestService = requestService;
+    }
 
     @GetMapping("/userPage")
     public String getMainPage(Model model) {

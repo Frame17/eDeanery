@@ -15,8 +15,12 @@ import java.util.List;
 @Controller
 public class AdminRequestsController {
 
+    private final RequestService requestService;
+
     @Autowired
-    private RequestService requestService;
+    public AdminRequestsController(RequestService requestService) {
+        this.requestService = requestService;
+    }
 
     @GetMapping("/admin")
     public String getMainPage(Model model) {
