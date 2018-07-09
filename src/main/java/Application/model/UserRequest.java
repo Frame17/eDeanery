@@ -22,7 +22,7 @@ public class UserRequest {
     private String responseText;
 
 
-    private UserRequest() {
+    public UserRequest() {
     }
 
     public UserRequest(String text, String requestTopic) {
