@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class AdminRequestsControllerIT {
+public class AdminRequestsControllerTest {
 
     @Autowired
     private TestRestTemplate testRestTemplate;

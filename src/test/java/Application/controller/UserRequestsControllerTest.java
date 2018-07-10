@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class UserRequestsControllerIT {
+public class UserRequestsControllerTest {
 
     private ResponseEntity<String> responseEntity;
 
