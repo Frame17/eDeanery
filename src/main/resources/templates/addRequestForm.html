@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reply Form</title>
+    <title>Create Request Page</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <link rel="stylesheet/less" href="css/replyForm.less">
+    <link rel="stylesheet/less" href="css/addRequest.less">
 
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -51,27 +51,21 @@
     </div>
 </header>
 
+<div id="request-container">
+    <form class="create-request-form" method="post">
+        <div class="field" style="text-align: left">
+            <input name="topic" placeholder="Topic Input" class="topic-input" required>
+        </div>
 
-<div class="reply-container">
-    <div class="field topic-field">
-        <b><span style="margin-top: 2px; font-size: 1.5em" th:text="${userRequest.requestTopic}"></span></b><br>
-        <span style="padding-left:5px; margin-top: 2px; font-size: 1.25em;">%From%</span><br>
-        <span style="padding-left:5px; margin-top: 2px; font-size: 1.25em;" th:text="${userRequest.requestDate}"></span>,
-        <span style="padding-left:5px; margin-top: 2px; font-size: 1.25em;" th:text="${userRequest.requestTime}"></span>
-    </div>
+        <div class="field">
+            <textarea name="text" placeholder="Request Text" class="text-input" required
+                      data-gramm_editor="false"></textarea><br>
+            <input name="file" type="file" style="margin: auto"><br>
+            <input type="submit" value="Submit" class="submit-button">
+        </div>
 
-    <div class="field request-field">
-        <span th:text="${userRequest.text}"></span>
-    </div>
-
-    <form class="field reply-form" method="post">
-        <textarea name="answerInput" placeholder="Answer text" class="answer-input"
-                  data-gramm_editor="false"></textarea><br>
-        <input name="inputFile" type="file" style="margin: auto"><br>
-        <input type="submit" value="Submit">
     </form>
 </div>
-
 
 </body>
 </html>
