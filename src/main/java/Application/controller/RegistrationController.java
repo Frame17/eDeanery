@@ -26,8 +26,11 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String getFromRegistrationPage(HttpServletRequest request, Model model) {
-        if (!request.getParameter("password").equals(request.getParameter("matchingPassword"))){}
-        else {
+        if (!request.getParameter("password").equals(request.getParameter("matchingPassword"))) {
+            System.out.println("request = [" + request + "], model = [" + model + "]");
+        } else if (emailExist(request.getParameter("email"))) {
+
+        } else {
             Users user = new Users(request.getParameter("firstName"), request.getParameter("lastName")
                     , request.getParameter("password"), request.getParameter("email"));
             userService.save(user);
@@ -37,7 +40,7 @@ public class RegistrationController {
         return "registration";
     }
 
-    @PostMapping("/login")
+    /*@PostMapping("/login")
     public String returnLogin() {
         return "login";
 
@@ -48,5 +51,13 @@ public class RegistrationController {
         List<Users> users = userService.findAll();
         model.addAttribute("userRequests", users);
         return "login";
+    }*/
+
+    private boolean emailExist(String email) {
+        Users user = userService.findByEmail(email);
+        if (user != null) {
+            return true;
+        }
+        return false;
     }
 }
