@@ -1,16 +1,16 @@
 package Application.dao;
 
 
-import Application.model.Users;
+import Application.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface UserRepository extends CrudRepository<Users, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
 
-    List<Users> findAll();
+    List<User> findAll();
 
-    Users save(Users user);
+    User save(User user);
 
-    Users findByEmail(String email);
+    User findByEmail(String email);
 }

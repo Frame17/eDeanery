@@ -1,6 +1,6 @@
 package Application.controller;
 
-import Application.model.Users;
+import Application.model.User;
 import Application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ public class RegistrationController {
 
     @GetMapping("/registration")
     public String getRegistrationPage(Model model) {
-        List<Users> users = userService.findAll();
+        List<User> users = userService.findAll();
         model.addAttribute("userRequests", users);
         return "registration";
     }
@@ -31,15 +31,24 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String getFromRegistrationPage(HttpServletRequest request, Model model) {
         if (!request.getParameter("password").equals(request.getParameter("matchingPassword"))) {
-            System.out.println("request = [" + request + "], model = [" + model + "]");
+            System.out.println("passwords are not matching");
         } else if (emailExist(request.getParameter("email"))) {
-
+            System.out.println("this email already exists");
         } else {
-            Users user = new Users(request.getParameter("firstName"), request.getParameter("lastName")
+            User user = new User(request.getParameter("firstName"), request.getParameter("lastName")
                     , request.getParameter("password"), request.getParameter("email"));
-            userService.save(user);
-            List<Users> users = userService.findAll();
+            request.getParameter("email");
+
+            try{
+                userService.save(user);
+            }catch (org.springframework.transaction.TransactionSystemException e){
+                System.out.println( e.getClass().getCanonicalName());
+                model.addAttribute("firstNameText", request.getParameter("firstName"));
+            }
+            model.addAttribute("firstNameText", request.getParameter("firstName"));
+            List<User> users = userService.findAll();
             model.addAttribute("users", users);
+
         }
         return "registration";
     }
@@ -52,13 +61,13 @@ public class RegistrationController {
 
     @GetMapping("/login")
     public String getLoginPage(Model model) {
-        List<Users> users = userService.findAll();
+        List<User> users = userService.findAll();
         model.addAttribute("userRequests", users);
         return "login";
     }*/
 
     private boolean emailExist(String email) {
-        Users user = userService.findByEmail(email);
+        User user = userService.findByEmail(email);
         if (user != null) {
             return true;
         }

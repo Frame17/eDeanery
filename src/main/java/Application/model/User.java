@@ -9,7 +9,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -31,11 +31,11 @@ public class Users {
     @NotEmpty
     private String email;
 
-    public Users() {
+    public User() {
 
     }
 
-    public Users(String firstName, String lastName, String password, String email) {
+    public User(String firstName, String lastName, String password, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

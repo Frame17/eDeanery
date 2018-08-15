@@ -1,7 +1,7 @@
 package Application.service;
 
 import Application.dao.UserRepository;
-import Application.model.Users;
+import Application.model.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,12 +19,12 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<Users> findAll() {
+    public List<User> findAll() {
         return userRepository.findAll();
     }
 
-    public void save(Users user) {
+    public void save(User user) {
         userRepository.save(user);
     }
-    public Users findByEmail(String email){return userRepository.findByEmail(email);}
+    public User findByEmail(String email){return userRepository.findByEmail(email);}
 }
